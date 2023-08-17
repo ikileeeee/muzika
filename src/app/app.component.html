@@ -1,3 +1,72 @@
 <ion-app>
+
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list lines="none">
+        
+        <ion-menu-toggle>
+          <ion-item routerLink="/my-recommendations">
+            <ion-icon name="flame" slot="start"></ion-icon>
+            <ion-label>My Recommendations</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/recommendations">
+            <ion-icon name="planet" slot="start"></ion-icon>
+            <ion-label>Recommendations</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/stared-songs">
+            <ion-icon name="star-outline" slot="start"></ion-icon>
+            <ion-label>Stared Songs</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="log-out" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </div>
   <ion-router-outlet></ion-router-outlet>
+
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button routerLink="/recommendations">
+        <ion-icon name="planet" aria-hidden="true"></ion-icon>
+        <ion-label>Recommendations</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/my-recommendations">
+        <ion-icon name="flame" aria-hidden="true"></ion-icon>
+        <ion-label>My Recommendations</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button routerLink="/stared-songs">
+        <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+        <ion-label>Stared Songs</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+
+
 </ion-app>

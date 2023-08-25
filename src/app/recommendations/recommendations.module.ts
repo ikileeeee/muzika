@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import { IonCard, IonicModule } from '@ionic/angular';
 
 import { RecommendationsPageRoutingModule } from './recommendations-routing.module';
 
 import { RecommendationsPage } from './recommendations.page';
-import { RecomendModule } from '../recomend.module';
 
 
 @NgModule({
@@ -19,8 +18,7 @@ import { RecomendModule } from '../recomend.module';
     
   ],
   declarations: [
-    RecommendationsPage,
-
+    RecommendationsPage
   ]
 })
 export class RecommendationsPageModule {}

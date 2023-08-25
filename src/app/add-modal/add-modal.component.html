@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Add Recomendation
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+  <ion-content>
+    <form #f="ngForm" (ngSubmit)="onAdd()">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-input type="text" placeholder="Singer" ngModel name="singer" required></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input type="text" placeholder="Song" ngModel name="song" required></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                
+                <ion-col >
+                    <ion-list>
+                        <ion-item>
+                          <ion-select interface="popover" placeholder="Select genre" ngModel name="genre" required>
+                            <ion-select-option value="pop">Pop</ion-select-option>
+                            <ion-select-option value="rock">Rock</ion-select-option>
+                            <ion-select-option value="r&b">R&B</ion-select-option>
+                            <ion-select-option value="hipHop">Hip hop</ion-select-option>
+                            <ion-select-option value="rap">Rap</ion-select-option>
+                            <ion-select-option value="trap">Trap</ion-select-option>
+                            <ion-select-option value="country">Country music</ion-select-option>
+                          </ion-select>
+                        </ion-item>
+                      </ion-list>
+                </ion-col>
+                <ion-col></ion-col>
+                <ion-col></ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input type="text" placeholder="Comment" ngModel name="comment" required></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-button type="submit" expand="block" [disabled]="f.invalid">Add it</ion-button>
+    </form>
+   
+  </ion-content>
+  
+  
+  

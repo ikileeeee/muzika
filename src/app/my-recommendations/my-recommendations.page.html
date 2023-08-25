@@ -1,3 +1,5 @@
+<ion-content>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
   <ion-buttons slot="start">
@@ -5,17 +7,9 @@
     </ion-menu-button>
   </ion-buttons>
     <ion-title slot="end">My Reccomendations</ion-title>
+
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">my-recommendations</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button routerLink="/recommendations">
@@ -27,7 +21,11 @@
         <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
         <ion-label>Stared Songs</ion-label>
       </ion-tab-button>
+      <ion-tab-button>
+        <ion-fab-button (click)="openForm()" size="small" color="clear"><ion-icon name="add-sharp"></ion-icon></ion-fab-button>
+
+      </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-
+ 
 </ion-content>

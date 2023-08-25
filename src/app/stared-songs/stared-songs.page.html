@@ -1,12 +1,9 @@
 <ion-header [translucent]="true">
-
+  <ion-toolbar>
   <ion-buttons slot="start">
     <ion-menu-button>
-      
     </ion-menu-button>
-
   </ion-buttons>
-  <ion-toolbar>
     <ion-title slot="end">Stared Songs</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,3 +15,18 @@
     </ion-toolbar>
   </ion-header>
 </ion-content>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button routerLink="/recommendations">
+      <ion-icon name="planet" aria-hidden="true"></ion-icon>
+      <ion-label>Recommendations</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button routerLink="/my-recommendations">
+      <ion-icon name="flame" aria-hidden="true"></ion-icon>
+      <ion-label>My Recommendations</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+

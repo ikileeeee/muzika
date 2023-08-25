@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RecomendModel } from '../interface/recomend.model';
+import { RecomendService } from '../recomend.service';
 
 @Component({
   selector: 'app-recommendations',
@@ -6,8 +8,20 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./recommendations.page.scss'],
 })
 export class RecommendationsPage implements OnInit, OnDestroy {
-  constructor() { 
-    console.log('constructor');
+
+  recomends: RecomendModel[]=[{
+    id: "1", singer:"Moja malenkost", song:"ja", genre:"ja",author:"ja",comment:"ja"
+ },
+ {
+  id: "2", singer:"Moja malenkost", song:"ja", genre:"ja",author:"ja",comment:"ja"
+}];
+
+  constructor(private recomendService: RecomendService) { 
+    this.recomends=this.recomendService.recomend;
+  }
+
+  staredAlert(){
+    console.log("2");
   }
 
   ngOnInit() {

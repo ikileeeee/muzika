@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { RecommendationsPageRoutingModule } from './recommendations-routing.module';
 
 import { RecommendationsPage } from './recommendations.page';
+import { RecomendModule } from '../recomend.module';
+
 
 @NgModule({
   imports: [
@@ -14,7 +16,11 @@ import { RecommendationsPage } from './recommendations.page';
     FormsModule,
     IonicModule,
     RecommendationsPageRoutingModule
+    
   ],
-  declarations: [RecommendationsPage]
+  declarations: [
+    RecommendationsPage,
+
+  ]
 })
 export class RecommendationsPageModule {}

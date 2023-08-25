@@ -1,0 +1,27 @@
+<ion-content  scroll-y="false">
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    
+    <ion-grid>
+  <div class="header">
+    <h3>Hello,</h3>
+    <h1>Create a <br>New account</h1>
+  </div>
+  <div class="form">
+    <ion-input type="username" formControlName="username" placeholder="Username"></ion-input>
+    <ion-input type="email" formControlName="email" placeholder="Email"
+    errorText="Invalid email format!"></ion-input>
+    <ion-input type="password" formControlName="password" placeholder="Password"
+    errorText="Invalid password, should have at least 6 letters!"></ion-input>
+  </div>
+  <ion-button type="submit" fill="clear" color="light">
+    Signup<ion-icon name="chevron-forward-outline"></ion-icon>
+  
+ </ion-button>
+  <div class="footer">
+    <h3 routerLink="/login">Already have an account? <span>Login</span></h3>
+  </div>
+
+</ion-grid>
+</form>
+</ion-content>
+

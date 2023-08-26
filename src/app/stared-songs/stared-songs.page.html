@@ -9,13 +9,40 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">stared-songs</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  
+  <ion-list>
+    
+    <ion-card *ngFor="let recomend of recomends">
+     
+      <ion-card-header>
+        <ion-card-subtitle>{{recomend.genre}}</ion-card-subtitle>
+      
+        <ion-card-title>
+              <ion-col>{{recomend.song}} - {{recomend.singer}}</ion-col> 
+        </ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{recomend.comment}}
+      
+      </ion-card-content>
+      
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col> <ion-col></ion-col> <ion-col></ion-col> <ion-col></ion-col>
+     
+     <ion-fab-button expand="block" size="small" color="warning" (click)="unstar(recomend)"><ion-icon name="heart-sharp" color="danger"></ion-icon></ion-fab-button> 
+  
+    </ion-row>
+     
+    
+    </ion-card>
+  
+  </ion-list>
+  
+  </ion-content>
 
+<ion-item>
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button routerLink="/recommendations">
@@ -29,4 +56,5 @@
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
+</ion-item>
 

@@ -1,8 +1,6 @@
-export interface RecomendModel {
-    id:string,
-    song:string,
-    singer:string,
-    genre:string,
-    author:string,
-    comment:string,
+export class RecomendModel {
+    constructor(public id: string,public song: string,public singer: string,
+        public genre: string,public author: string,public comment: string){
+
+    }
 }

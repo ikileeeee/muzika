@@ -12,17 +12,17 @@ const routes: Routes = [
   {
     path: 'my-recommendations',
     loadChildren: () => import('./my-recommendations/my-recommendations.module').then( m => m.MyRecommendationsPageModule),
-    //canLoad: [AuthGuard]
+  canLoad: [AuthGuard]
   },
   {
     path: 'stared-songs',
     loadChildren: () => import('./stared-songs/stared-songs.module').then( m => m.StaredSongsPageModule),
-   // canLoad: [AuthGuard]
+    canLoad: [AuthGuard]
   },
   {
     path: 'recommendations',
     loadChildren: () => import('./recommendations/recommendations.module').then( m => m.RecommendationsPageModule),
-   // canLoad: [AuthGuard]
+    canLoad: [AuthGuard]
   },
   {
     path: 'login',

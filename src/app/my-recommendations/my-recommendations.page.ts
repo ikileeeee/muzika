@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { RecomendModel } from '../interface/recomend.model';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 import { RecomendService } from '../recomend.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-my-recommendations',
@@ -11,6 +12,7 @@ import { RecomendService } from '../recomend.service';
 })
 export class MyRecommendationsPage implements OnInit, OnDestroy {
 
+  private subRec: Subscription;
   recomends: RecomendModel[];
     constructor(private addModal: ModalController, private recomendService: RecomendService) { 
       console.log('constructor');
@@ -39,10 +41,19 @@ export class MyRecommendationsPage implements OnInit, OnDestroy {
     }
   
     ngOnInit() {
-      console.log('ngOnInit');
+      this.subRec=this.recomendService.myReccomendations.subscribe((recomendationData)=>{
+        console.log(recomendationData);
+        
+        this.recomends=recomendationData;
+      }
+      );
     }
     ionViewWillEnter() {
-      console.log('ionViewWillEnter');
+      this.recomendService.getMyRecomendations().subscribe((recomendationData)=>{
+        console.log(recomendationData);
+       // this.recomends=recomendationData;
+      }
+      );
     }
     
     ionViewDidEnter() {
@@ -56,8 +67,11 @@ export class MyRecommendationsPage implements OnInit, OnDestroy {
     }
   ngOnDestroy(){
     console.log('ngOnDestroy');
+    if(this.subRec){
+      this.subRec.unsubscribe();
   
   }
+}
   
 
 }

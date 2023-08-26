@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RecomendModel } from '../interface/recomend.model';
 import { RecomendService } from '../recomend.service';
-import { AlertController, IonButton } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,27 +11,34 @@ import { Subscription } from 'rxjs';
 })
 export class RecommendationsPage implements OnInit, OnDestroy {
 
-private subRec: Subscription;
+  private subRec: Subscription;
   recomends: RecomendModel[];
-
+  private sub2: Subscription;
+  alreadyIn: RecomendModel[];
+  old= new RecomendModel("", "","","","","");
   constructor(private recomendService: RecomendService, private alertC: AlertController) { 
     //this.recomends=this.recomendService.recomend;
-  }
-
-
-
+  } 
   ngOnInit() {
     this.subRec=this.recomendService.reccomendations.subscribe((recomendationData)=>{
-      console.log(recomendationData);
-      
+      //console.log(recomendationData);
       this.recomends=recomendationData;
+    }
+    );
+    this.sub2=this.recomendService.staredRecomendations.subscribe((recomendationData)=>{
+      //console.log(recomendationData);
+      this.alreadyIn=recomendationData;
     }
     );
   }
   ionViewWillEnter() {
     this.recomendService.getRecomendations().subscribe((recomendationData)=>{
       console.log(recomendationData);
-      
+     // this.recomends=recomendationData;
+    }
+    );
+    this.recomendService.getStarredReccomendation().subscribe((recomendationData)=>{
+      console.log(recomendationData);
      // this.recomends=recomendationData;
     }
     );
@@ -46,14 +53,18 @@ private subRec: Subscription;
   ionViewDidLeave() {
     console.log('ionViewWDidLeave');
   }
-ngOnDestroy(){
+  ngOnDestroy(){
   console.log('ngOnDestroy');
   if(this.subRec){
   this.subRec.unsubscribe();
+  if(this.sub2){
+    this.subRec.unsubscribe();
+  }
 }
 
 }
-staredAlert(){
+
+staredAlert(rec: RecomendModel){
   this.alertC.create({
     header: "Saving recomendation.",
     message: "Are you sure you want to save this recomendation?",
@@ -67,11 +78,20 @@ staredAlert(){
       {
         text: "Save",
         handler: ()=>{
-          console.log("Saving it!");
+          console.log(this.old);
+          for(const key in this.alreadyIn){
+            if(this.alreadyIn[key].id==rec.id || this.old.id==rec.id){
+              return;
+            }
+          }
+          this.old=rec;
+          console.log(rec.song);
+          this.recomendService.addStaredRecomendation(rec).subscribe((res)=>{
+            console.log(res);
+          });;
         }
       }
     ]
-    
   }).then( (alert: HTMLIonAlertElement)=>{
   alert.present();
 });

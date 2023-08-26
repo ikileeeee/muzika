@@ -15,8 +15,14 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
   onLogin(form: NgForm){
-    console.log(form);
-    //this.authService.login();
-    //this.router.navigateByUrl('recommendations');
+    if(form.valid){
+    console.log(form.value)
+    this.authService.login(form.value).subscribe(resData =>{
+    console.log(resData);
+    console.log('Uspesan LOGIN');
+    this.router.navigateByUrl('/');});
+  }else{
+    console.log('Nije dobar email/password');
   }
+}
 }

@@ -13,10 +13,11 @@
   
 <ion-list>
   
-  <ion-card *ngFor="let recomend of recomends" >
+  <ion-card *ngFor="let recomend of recomends">
    
     <ion-card-header>
       <ion-card-subtitle>{{recomend.genre}}</ion-card-subtitle>
+    
       <ion-card-title>
             <ion-col>{{recomend.song}} - {{recomend.singer}}</ion-col> 
       </ion-card-title>
@@ -31,7 +32,7 @@
     <ion-col></ion-col>
     <ion-col></ion-col> <ion-col></ion-col> <ion-col></ion-col> <ion-col></ion-col>
    
-   <ion-fab-button expand="block" (click)="staredAlert()" color="danger"><ion-icon name="heart-sharp"></ion-icon></ion-fab-button> 
+   <ion-fab-button expand="block" size="small" (click)="staredAlert(recomend)" color="danger"><ion-icon name="heart-sharp"></ion-icon></ion-fab-button> 
 
   </ion-row>
    

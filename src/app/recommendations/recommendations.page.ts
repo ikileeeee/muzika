@@ -12,10 +12,12 @@ import { Subscription } from 'rxjs';
 export class RecommendationsPage implements OnInit, OnDestroy {
 
   private subRec: Subscription;
-  recomends: RecomendModel[];
+  recomends: RecomendModel[]=[];
   private sub2: Subscription;
   alreadyIn: RecomendModel[];
   old= new RecomendModel("", "","","","","");
+  public results:RecomendModel[] = [...this.recomends];
+
   constructor(private recomendService: RecomendService, private alertC: AlertController) { 
     //this.recomends=this.recomendService.recomend;
   } 
@@ -23,6 +25,7 @@ export class RecommendationsPage implements OnInit, OnDestroy {
     this.subRec=this.recomendService.reccomendations.subscribe((recomendationData)=>{
       //console.log(recomendationData);
       this.recomends=recomendationData;
+      this.results=recomendationData;
     }
     );
     this.sub2=this.recomendService.staredRecomendations.subscribe((recomendationData)=>{
@@ -81,14 +84,13 @@ staredAlert(rec: RecomendModel){
           console.log(this.old);
           for(const key in this.alreadyIn){
             if(this.alreadyIn[key].id==rec.id || this.old.id==rec.id){
-
               this.alertC.create({
                 header: "",
                 message:"Already saved song!",
                 buttons:[ "Okay"]
               }).then( (alert: HTMLIonAlertElement)=>{
               alert.present();
-            });
+              });
 
               return;
             }
@@ -105,6 +107,12 @@ staredAlert(rec: RecomendModel){
   }).then( (alert: HTMLIonAlertElement)=>{
   alert.present();
 });
+}
+
+
+handleInput(event:any) {
+  const query = event.target.value.toLowerCase();
+  this.recomends = this.results.filter((rec) => rec.song.toLowerCase().indexOf(query) > -1);
 }
 
 }

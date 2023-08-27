@@ -15,7 +15,14 @@
     <ion-card *ngFor="let recomend of recomends">
      
       <ion-card-header>
-        <ion-card-subtitle>{{recomend.genre}}</ion-card-subtitle>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+         <ion-col></ion-col> 
+         <ion-col></ion-col> 
+         <ion-col></ion-col> 
+         <ion-card-subtitle>{{recomend.genre}}</ion-card-subtitle>
+           </ion-row>
       
         <ion-card-title>
               <ion-col>{{recomend.song}} - {{recomend.singer}}</ion-col> 

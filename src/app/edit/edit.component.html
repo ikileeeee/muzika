@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
       <ion-title>
-          Add Recomendation
+          Edit Recomendation
       </ion-title>
       <ion-buttons slot="end">
           <ion-button (click)="cancel()">Cancel</ion-button>
@@ -13,18 +13,18 @@
       <ion-grid>
           <ion-row>
               <ion-col>
-                  <ion-input type="text" placeholder={{rec.singer}} ngModel name="singer" required></ion-input>
+                  <ion-input type="text" fill="outline" placeholder={{rec.singer}} ngModel name="singer" required></ion-input>
               </ion-col>
           </ion-row>
           <ion-row>
               <ion-col>
-                  <ion-input type="text" placeholder={{rec.song}} ngModel name="song" required></ion-input>
+                  <ion-input type="text" fill="outline" placeholder={{rec.song}} ngModel name="song" required></ion-input>
               </ion-col>
           </ion-row>
           <ion-row>
               
               <ion-col >
-                  <ion-list>
+                  <ion-list >
                       <ion-item>
                         <ion-select interface="popover" placeholder={{rec.genre}} ngModel name="genre" required>
                           <ion-select-option value="pop">Pop</ion-select-option>
@@ -38,16 +38,14 @@
                       </ion-item>
                     </ion-list>
               </ion-col>
-              <ion-col></ion-col>
-              <ion-col></ion-col>
           </ion-row>
           <ion-row>
               <ion-col>
-                  <ion-input type="text" placeholder={{rec.comment}} ngModel name="comment" required></ion-input>
+                  <ion-input type="text" fill="outline" placeholder={{rec.comment}} ngModel name="comment" required></ion-input>
               </ion-col>
           </ion-row>
       </ion-grid>
-      <ion-button type="submit" expand="block" [disabled]="f.invalid">Edit it</ion-button>
+      <ion-button type="submit" color="warning" expand="block" [disabled]="f.invalid">Edit it</ion-button>
   </form>
  
 </ion-content>

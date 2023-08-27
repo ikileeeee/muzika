@@ -53,7 +53,7 @@ export class AuthService {
   }
   register(user: UserData){
     this.isAuthenticated=true;
-   return this.http.post<AuthData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseAPIKey}`, {
+    return this.http.post<AuthData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseAPIKey}`, {
       username: user.username,
       email: user.email,
       password: user.password,

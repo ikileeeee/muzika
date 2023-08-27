@@ -28,9 +28,8 @@ export class RegisterPage implements OnInit {
     this.auth.register(this.registerForm.value).subscribe(resData=>{
       console.log("Registrovan");
       console.log(resData);
+      this.router.navigateByUrl('/my-recommendations');
     });
-    this.router.navigateByUrl('/my-recommendations');
-
   }
 
 }

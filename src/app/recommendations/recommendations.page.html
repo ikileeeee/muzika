@@ -10,13 +10,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+<ion-searchbar show-clear-button="focus" fill="outline" color="" (ionInput)="handleInput($event)"></ion-searchbar>
+
 <ion-list>
   
   <ion-card *ngFor="let recomend of recomends">
    
     <ion-card-header>
-      <ion-card-subtitle>{{recomend.genre}}</ion-card-subtitle>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+       <ion-col></ion-col> 
+       <ion-col></ion-col> 
+       <ion-col></ion-col> 
+       <ion-card-subtitle>{{recomend.genre}}</ion-card-subtitle>
+         </ion-row>
     
       <ion-card-title>
             <ion-col>{{recomend.song}} - {{recomend.singer}}</ion-col> 
@@ -32,7 +40,7 @@
     <ion-col></ion-col>
     <ion-col></ion-col> <ion-col></ion-col> <ion-col></ion-col> <ion-col></ion-col>
    
-   <ion-fab-button expand="block" size="small" (click)="staredAlert(recomend)" color="danger"><ion-icon name="heart-sharp"></ion-icon></ion-fab-button> 
+   <ion-button expand="block"  size="small" (click)="staredAlert(recomend)" color="danger"><ion-icon name="heart"></ion-icon></ion-button> 
 
   </ion-row>
    
@@ -42,11 +50,12 @@
 </ion-list>
 
 </ion-content>
+
 <ion-item>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button routerLink="/my-recommendations">
-        <ion-icon name="flame" aria-hidden="true"></ion-icon>
+        <ion-icon name="planet" aria-hidden="true"></ion-icon>
         <ion-label>My Recommendations</ion-label>
       </ion-tab-button>
   
@@ -54,8 +63,8 @@
         <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
         <ion-label>Stared Songs</ion-label>
       </ion-tab-button>
+      
     </ion-tab-bar>
-  
   </ion-tabs>
 </ion-item>
 

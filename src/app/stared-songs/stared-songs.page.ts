@@ -14,7 +14,7 @@ export class StaredSongsPage implements OnInit, OnDestroy {
 
   private subRec: Subscription;
   recomends: RecomendModel[];
-
+  private delete: StaredModel;
   private sub2: Subscription;
   staredRec: StaredModel[];
 
@@ -80,13 +80,10 @@ ngOnDestroy(){
         {
           text: "Yes",
           handler: ()=>{
-            console.log('unsubscribe');
             for(const key in this.staredRec){
               if(this.staredRec[key].recomendation.id==rec.id){
-                console.log(this.staredRec[key]);
-                //this.recomendService.deletStaredRecomendation(this.staredRec[key]).subscribe((res)=>{
-                //  console.log(res);
-                //});;
+                console.log(this.staredRec[key].id);
+                this.recomendService.deletStaredRecomendation(this.staredRec[key]).subscribe((res)=> {});
               }
             }
             

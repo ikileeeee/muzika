@@ -9,6 +9,7 @@ import { MyRecommendationsPageRoutingModule } from './my-recommendations-routing
 import { MyRecommendationsPage } from './my-recommendations.page';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 import { RecomendModule } from '../recomend.module';
+import { EditComponent } from '../edit/edit.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { RecomendModule } from '../recomend.module';
     MyRecommendationsPageRoutingModule
    // AddModalComponent
   ],
-  declarations: [MyRecommendationsPage, AddModalComponent]
+  declarations: [MyRecommendationsPage, AddModalComponent, EditComponent],
 
 })
 export class MyRecommendationsPageModule {}

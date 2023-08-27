@@ -81,6 +81,15 @@ staredAlert(rec: RecomendModel){
           console.log(this.old);
           for(const key in this.alreadyIn){
             if(this.alreadyIn[key].id==rec.id || this.old.id==rec.id){
+
+              this.alertC.create({
+                header: "",
+                message:"Already saved song!",
+                buttons:[ "Okay"]
+              }).then( (alert: HTMLIonAlertElement)=>{
+              alert.present();
+            });
+
               return;
             }
           }
@@ -89,6 +98,7 @@ staredAlert(rec: RecomendModel){
           this.recomendService.addStaredRecomendation(rec).subscribe((res)=>{
             console.log(res);
           });;
+          
         }
       }
     ]

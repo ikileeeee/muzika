@@ -18,9 +18,9 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.registerForm= new FormGroup({
-      username: new FormControl('Ivana', Validators.required),
-      email: new FormControl('ivanicadr00@gmail.com', [Validators.required, Validators.email]),
-      password: new FormControl('Ivana5', [Validators.required, Validators.minLength(6)])
+      username: new FormControl( "",Validators.required),
+      email: new FormControl("",[Validators.required, Validators.email]),
+      password: new FormControl("",[Validators.required, Validators.minLength(6)])
     })
   }
   onRegister(){
@@ -29,7 +29,7 @@ export class RegisterPage implements OnInit {
       console.log("Registrovan");
       console.log(resData);
     });
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/my-recommendations');
 
   }
 
